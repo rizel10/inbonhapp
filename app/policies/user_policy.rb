@@ -1,4 +1,4 @@
-class PotentialManagerPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
 
   def update?
     user_is_record

@@ -43,12 +43,12 @@ class Api::V1::UsersController < Api::V1::BaseController
   private
 
     def sign_up_params
-      require_parameters([:property_relation, :name, :phone, :avatar, :email, :password])
-      params.permit(:property_relation, :name, :phone, :avatar, :email, :password)
+      require_parameters([:nickname, :avatar, :email, :password])
+      params.permit(:nickname, :avatar, :email, :password)
     end
 
     def update_params
-      params.permit(:property_relation, :name, :phone, :avatar, :email)
+      params.permit(:nickname, :avatar, :email)
     end
 
     def password_params

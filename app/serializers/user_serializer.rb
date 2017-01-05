@@ -1,5 +1,5 @@
 class PotentialManagerSerializer < ApplicationSerializer
-  attributes :id, :email, :name, :property_relation, :phone, :avatar
+  attributes :id, :email, :nickname, :avatar
 
   def avatar
     file_presenter(:avatar)
