@@ -30,12 +30,8 @@ ActiveRecord::Schema.define(version: 20170104131441) do
     t.string   "encrypted_password",     default: "",      null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.string   "name",                                     null: false
+    t.string   "nickname",                                 null: false
     t.string   "avatar",                                   null: false
-    t.string   "company"
-    t.string   "phone",                                    null: false
-    t.string   "type",                                     null: false
-    t.integer  "property_relation",      default: 0,       null: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.datetime "deleted_at"
