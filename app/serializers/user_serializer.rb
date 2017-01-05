@@ -1,4 +1,4 @@
-class PotentialManagerSerializer < ApplicationSerializer
+class UserSerializer < ApplicationSerializer
   attributes :id, :email, :nickname, :avatar
 
   def avatar
