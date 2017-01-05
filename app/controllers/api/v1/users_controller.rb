@@ -1,40 +1,40 @@
-class Api::V1::PotentialManagersController < Api::V1::BaseController
+class Api::V1::UsersController < Api::V1::BaseController
   before_action :authenticate_user!, except: [:create, :reset_password]
   before_action :load_resource, except: [:create, :reset_password]
 
   # CRUDs
   def create
-    @potential_manager = PotentialManager.create!(sign_up_params)
-    bypass_authenticate(@potential_manager)
-    render json: @potential_manager
+    @user = User.create!(sign_up_params)
+    bypass_authenticate(@user)
+    render json: @user
   end
 
   def update
-    authorize @potential_manager
-    @potential_manager.update!(update_params)
-    render json: @potential_manager
+    authorize @user
+    @user.update!(update_params)
+    render json: @user
   end
 
   def show
-    authorize @potential_manager
-    render json: @potential_manager
+    authorize @user
+    render json: @user
   end
 
   # Custom actions
   def password
-    authorize @potential_manager
-    @potential_manager.update_with_password!(password_params)
+    authorize @user
+    @user.update_with_password!(password_params)
   end
 
   def reset_password
     params.require(:email)
-    PotentialManager.reset_password(params[:email])
+    User.reset_password(params[:email])
     # No Content
   end
 
   def register_device
     require_parameters([:device_id, :device_os])
-    authorize @potential_manager
+    authorize @user
     current_user.register_device(request.headers["client"], params[:device_id], params[:device_os])
     # No Content
   end
