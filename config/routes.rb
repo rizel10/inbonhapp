@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :events, except: [:edit, :new]
+
     end
   end
 

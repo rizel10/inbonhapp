@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104131441) do
+ActiveRecord::Schema.define(version: 20170105224124) do
 
   create_table "authentications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "authable_type"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20170104131441) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.index ["authable_type", "authable_id"], name: "index_authentications_on_authable_type_and_authable_id", using: :btree
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                                null: false
+    t.date     "when"
+    t.string   "address"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lng",        precision: 10, scale: 6
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
