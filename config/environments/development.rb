@@ -58,6 +58,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  # In development mode, the Angular front-end code runs on port 9000 and our Rails backend runs on port 3000.
+  # This causes CORS problem, but we can solve it with 'rack-cors' gem and the following code.
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*',
+               :headers => :any,
+               :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+               :methods => [:get, :post, :options, :delete, :put]
+    end
+  end
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
