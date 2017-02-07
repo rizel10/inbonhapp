@@ -15,7 +15,7 @@ class Api::V1::EventsController < Api::V1::BaseController
   end
 
   def index
-    render json: @events
+    render json: @events.where("created_at > ?", Time.zone.now)
   end
 
   def show

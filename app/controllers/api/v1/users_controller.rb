@@ -20,6 +20,37 @@ class Api::V1::UsersController < Api::V1::BaseController
     render json: @user
   end
 
+  def index
+    render json: [
+                  {
+                    "id": 0,
+                    "text": "Finalizar desafio de criação",
+                    "completed": true
+                  },
+                  {
+                    "id": 1,
+                    "text": "Pensar e analisar",
+                    "completed": true
+                  },
+                  {
+                    "id": 2,
+                    "text": "Definir layout e design",
+                    "completed": false
+                  },
+                  {
+                    "id": 3,
+                    "text": "Pesquisar referências",
+                    "completed": false
+                  },
+                  {
+                    "id": 4,
+                    "text": "Enviar relatório",
+                    "completed": false
+                  }
+                ]
+
+  end
+
   # Custom actions
   def password
     authorize @user

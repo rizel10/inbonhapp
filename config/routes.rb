@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         delete 'sign_out' => 'sessions#destroy'
       end
 
-      resources :users, except: [:edit, :new, :index, :destroy], shallow: true do
+      resources :users, except: [:edit, :new, :destroy], shallow: true do
         member do
           put :password
           put :register_device
