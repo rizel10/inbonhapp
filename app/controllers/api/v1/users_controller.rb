@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
-  before_action :authenticate_user!, except: [:create, :reset_password]
-  before_action :load_resource, except: [:create, :reset_password]
+  before_action :authenticate_user!, except: [:create, :reset_password, :index]
+  before_action :load_resource, except: [:create, :reset_password, :index]
 
   # CRUDs
   def create
